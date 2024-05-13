@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-nav{
+    display: flex;
+    background-color: brown;
+    justify-content: space-around;
+    color:white;
+    align-items: center;
+
+}
+
+.active{
+    background-color: deeppink;
+    padding:10px 15px 10px 15px;
+    border-radius: 10px;
+}

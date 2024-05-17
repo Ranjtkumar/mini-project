@@ -1,5 +1,6 @@
 import React from 'react'
 import { Carousel,Card } from 'react-bootstrap'
+import RecentChats from './RecentChats'
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
                   The Internet Transforming Society and Shaping The Future Through The Chat
                 </div>
                 <div className='col-span-6'>
-                  <img className='w-full h-full' src="/assets/chatimg.jpg"/>
+                  <img className='w-full h-96' src="/assets/chatimg.jpg"/>
                 </div>
             </div>
           </Carousel.Item>
@@ -35,10 +36,22 @@ export default function Home() {
 
             </div>
           </Carousel.Item>
+          <Carousel.Item className='border-0 p-0 bg-white'>
+            <div className='grid grid-cols-12 px-20 py-5 gap-10' style={{backgroundImage:"url('/assets/chatbg2.jpg')"}}>
+              <div className='col-span-6 text-5xl leading-normal text-white font-bold'>
+                <div className='bg-lime-700 border-[10px] border-rose-700 rounded-4 p-3'>
+                  <em>Some talk to you in their free time and some free their time to talk to you</em>
+                </div>
+                
+              </div>
+              <div className='col-span-6'>
+                <img src="/assets/chatpeople.jpg" className='h-96 w-full'/>
+              </div>
+            </div>
+          </Carousel.Item>
         </Carousel>
-        <Card>
-          
-        </Card>
+        
+        <RecentChats/>
     </div>
   )
 }

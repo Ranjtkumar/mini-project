@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Login() {
@@ -14,6 +15,7 @@ export default function Login() {
   const [userList,setUserList] = useState([])
 
   const [errMsg,setErrMsg] = useState("")
+  const navigate = useNavigate()
 
   useEffect(()=>{
     axios.get("http://localhost:3002/user/get").then(
@@ -30,7 +32,7 @@ export default function Login() {
 
     if(user){
       if(user?.password === password){
-        
+        navigate("/")
       }else{
         setErrMsg("Incorrect password")
       }
@@ -51,7 +53,7 @@ export default function Login() {
   }
 
   return (
-    <div className='flex justify-center items-center bg-cover pt-3 overflow-y-hidden' style={{backgroundImage:`url('/assets/chatbg.jpg')`}}>
+    <div className='flex justify-center items-center bg-cover pt-[32px] overflow-y-hidden' style={{backgroundImage:`url('/assets/chatbg.jpg')`}}>
      
         <div className='grid grid-cols-12 w-1/2 border-8 border-orange-500 rounded'>
           <div className='flex flex-col items-center col-span-5 bg-blue-200'>
@@ -73,13 +75,11 @@ export default function Login() {
 
                 
                 className='mt-2 border-2 border-black rounded-lg px-1 py-0.5 base'/><br/>
-                <div className='text-red-400 pt-2 tet-lg'>{errMsg}</div>
+
+                <div className='text-red-500 pt-2 text-lg font-semibold'>{errMsg}</div>
+
                 <button type='sumbit' className='bg-green-600 px-4 py-2 rounded-lg mt-4 font-medium 
                 text-white text-lg'>Login</button>
-
-
-
-               
 
                   <div className='pt-5 cursor-pointer' onClick={()=>{setIsSignup(true);setEmail("");setPassWord("")}}>
                     {`Didn't have account`}

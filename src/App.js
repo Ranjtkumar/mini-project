@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Chat from './components/Chat';
 
 
 
@@ -13,6 +14,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/chat" element={<Chat/>}/>
         <Route path="/login" element={<Login/>}/>
         
         

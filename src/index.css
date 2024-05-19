@@ -16,3 +16,12 @@
     padding:10px 15px 10px 15px;
     border-radius: 10px;
 }
+
+.chats{
+    height: calc(100% - 210px);
+}
+
+
+.chats::-webkit-scrollbar{
+    display: none;
+}

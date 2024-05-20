@@ -18,11 +18,15 @@
 }
 
 .chats{
-    height: calc(100% - 210px);
+    height: 57%;
 }
 
 
 .chats::-webkit-scrollbar{
+    display: none;
+}
+
+.messages::-webkit-scrollbar{
     display: none;
 }
 
@@ -32,9 +36,18 @@
   height: 0; 
   top: 0px;
   position: absolute;
-  right: -13px;
-  /* border-top: 10px solid transparent; */
-  border-bottom: 5px solid transparent;
-  /* border-radius: 0% 10px 0% 0%; */
-  border-left: 16px solid #004225;
+  right: -8px;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #036242;
+}
+
+.receive-message::before{
+    content: "";
+    width: 0; 
+    height: 0; 
+    top: 0px;
+    position: absolute;
+    left: -10px;
+    border-bottom: 10px solid transparent;
+    border-right: 12px solid #374151;
 }

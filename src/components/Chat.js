@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { MoreVert } from '@mui/icons-material';
 import SearchIcon from '@mui/icons-material/Search';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 
 export default function Chat() {
     const [showMenu,setShowMenu] = useState(false)
+    const menuRef = useRef()
+
+    
+
+
+    useEffect(()=>{
+        
+       const event = window.addEventListener("click",function(){
+        console.log(menuRef)
+        setShowMenu(false)
+       })
+
+       return()=>{
+        window.removeEventListener("click",event)
+       }
+    },[])
   return (
-    <div className='w-full h-[89vh] '>
-        <div className='bg-white grid grid-cols-12 h-full border-7 border-gray-400 rounded-lg'>
+    <div className='w-full h-[89vh] overflow-hidden'>
+        <div className='bg-white h-full grid grid-cols-12 border-7 border-gray-400 rounded-lg'>
             <div className='col-span-3 border-r-2 border-gray-600 bg-slate-200'>
                 <div className="flex justify-between  px-2 pt-2 relative">
                     <div className='text-2xl font-bold '>Chats</div>
@@ -16,7 +33,7 @@ export default function Chat() {
                         <MoreVert/>
                     </div>
 
-                   {showMenu && <div className='shadow-sm border-1 absolute border-gray-400 right-2 top-10 bg-white rounded-2'>
+                   {showMenu && <div ref={menuRef} className='shadow-sm border-1 absolute border-gray-400 right-2 top-10 bg-white rounded-2'>
                         <div className='p-2 border-b border-slate-300 cursor-pointer'>Profie</div>
                         <div className='p-2 border-b cousor-pointer'>Settings</div>
                     </div> }
@@ -36,18 +53,37 @@ export default function Chat() {
                             <div className='text-sm font-normal'>Good Morning</div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
-            <div className='col-span-9 '>
-                <div className='bg-[#004225] w-fit text-white text-base p-2 relative rounded-l-lg rounded-br-lg m-4 send-message'>
-                    Hi,How are you
-                </div>
-                <div className='flex fixed shadow-sm border-2 bottom-0 gap-2 justify-between w-[-webkit-fill-available] bg-slate-300  py-2 px-3'>
-                    <div className='grow'>
-                        <input className='w-full h-full border-1 border-gray-500  rounded-full px-3 outline-0 text-base' placeholder="Enter your message"/>
+            <div className='col-span-9 messages overflow-scroll mb-14 pt-8'>
+                <div className='flex justify-end w-[-webkit-fill-available] '>
+                    <div className='bg-[#036242] w-fit text-white text-base p-3 relative rounded-l-lg rounded-br-lg mr-4 ml-28 mb-4 send-message'>
+                        Hi,How are you blue and green. White is at the extreme upper end of the achromatic value scale and black is at the extreme lower end of the achromatic value scale, with all the colors normally considered tones of achromatic gray colors in between. Since achromatic colors have no hue, the hue code (h code) is left blank for achromatic colors (usually marked as a dash).
                     </div>
-                    <div className='h-10 w-10 bg-green-500 rounded-full flex justify-center text-white items-center'><ArrowForwardIcon/></div>
+                </div>
+                <div className='bg-gray-700 w-fit leading-6 w-fit text-white text-base p-3 relative rounded-r-lg rounded-bl-lg ml-4 mr-28 mb-4 receive-message'>
+                    I am Fine How are you 
+                    amounts of red, blue and green. White is at the extreme upper end of the achromatic value scale and black is at the extreme lower end of the achromatic value scale, with all the colors normally considered tones of achromatic gray colors in between. Since achromatic colors have no hue, the hue code (h code) is left blank for achromatic colors (usually marked as a dash).
+                </div>
+                <div className='bg-gray-700 w-fit leading-6 w-fit text-white text-base p-3 relative rounded-r-lg rounded-bl-lg ml-4 mr-28 mb-4 receive-message'>
+                    I am Fine How are you 
+                    amounts of red, blue and green. White is at the extreme upper end of the achromatic value scale and black is at the extreme lower end of the achromatic value scale, with all the colors normally considered tones of achromatic gray colors in between. Since achromatic colors have no hue, the hue code (h code) is left blank for achromatic colors (usually marked as a dash).
+                </div>
+                <div className='bg-gray-700 w-fit leading-6 w-fit text-white text-base p-3 relative rounded-r-lg rounded-bl-lg ml-4 mr-28 mb-4 receive-message'>
+                    I am Fine How are you 
+                    amounts of red, blue and green. White is at the extreme upper end of the achromatic value scale and black is at the extreme lower end of the achromatic value scale, with all the colors normally considered tones of achromatic gray colors in between. Since achromatic colors have no hue, the hue code (h code) is left blank for achromatic colors (usually marked as a dash).
+                </div>
+                <div className='bg-gray-700 w-fit leading-6 w-fit text-white text-base p-3 relative rounded-r-lg rounded-bl-lg ml-4 mr-28 mb-4 receive-message'>
+                    I am Fine How are you 
+                    amounts of red, blue and green. White is at the extreme upper end of the achromatic value scale and black is at the extreme lower end of the achromatic value scale, with all the colors normally considered tones of achromatic gray colors in between. Since achromatic colors have no hue, the hue code (h code) is left blank for achromatic colors (usually marked as a dash).
+                </div>
+                
+                <div className='flex fixed shadow-sm border-2 bottom-0 gap-2 justify-between w-[-webkit-fill-available] bg-slate-300  py-2 px-3'>
+                    <div className='h-10 w-10 bg-green-800 rounded-full flex justify-center text-white items-center'><FileUploadOutlinedIcon/></div>
+                    <div className='grow'>
+                        <input className='w-full h-full border-1 border-gray-500  rounded-full px-3 outline-0 text-base text-wrap' placeholder="Enter your message"/>
+                    </div>
+                    <div className='h-10 w-10 bg-[#002387] rounded-full flex justify-center text-white items-center'><ArrowForwardIcon/></div>
                 </div>
               
             </div>

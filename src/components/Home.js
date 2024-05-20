@@ -51,7 +51,7 @@ export default function Home() {
           </Carousel.Item>
         </Carousel>
         
-        <RecentChats/>
+        {/* <RecentChats/> */}
     </div>
   )
 }

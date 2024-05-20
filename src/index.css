@@ -25,3 +25,16 @@
 .chats::-webkit-scrollbar{
     display: none;
 }
+
+.send-message::after{
+  content: "";
+  width: 0; 
+  height: 0; 
+  top: 0px;
+  position: absolute;
+  right: -13px;
+  /* border-top: 10px solid transparent; */
+  border-bottom: 5px solid transparent;
+  /* border-radius: 0% 10px 0% 0%; */
+  border-left: 16px solid #004225;
+}

@@ -7,6 +7,7 @@ import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 export default function Chat() {
     const [showMenu,setShowMenu] = useState(false)
     const menuRef = useRef()
+    const inputFile = useRef(null)
 
     
 
@@ -79,7 +80,11 @@ export default function Chat() {
                 </div>
                 
                 <div className='flex fixed shadow-sm border-2 bottom-0 gap-2 justify-between w-[-webkit-fill-available] bg-slate-300  py-2 px-3'>
-                    <div className='h-10 w-10 bg-green-800 rounded-full flex justify-center text-white items-center'><FileUploadOutlinedIcon/></div>
+                    <div onClick={()=>{inputFile.current.click()}}
+                     className='h-10 w-10 bg-green-800 rounded-full flex justify-center text-white items-center'>
+                        <input ref={inputFile} type='file' style={{display:"none"}}/>
+                        <FileUploadOutlinedIcon/>
+                    </div>
                     <div className='grow'>
                         <input className='w-full h-full border-1 border-gray-500  rounded-full px-3 outline-0 text-base text-wrap' placeholder="Enter your message"/>
                     </div>
